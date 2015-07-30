@@ -13,6 +13,16 @@ This issue was spotted earlier by a few developers who went on to develop apps t
 Right from the day we built out Pacemaker into our app, our goal was to offer the benefits of the library to other developers. So go ahead, check through your GCM data to see if you are having delivery issues, and add this to your project if you want to fix it.
 
 ## How to use
+
+First, add the library to your project using Maven Central
+    repositories {
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    }
+
+    dependencies {
+        compile 'in.raveesh:pacemaker:0.1.0-SNAPSHOT'
+    }
+
 We've exposed two functions to start Pacemaker, one which sends linear heartbeats, and one which sends them after exponential gaps.
 
 ###### Linear
@@ -43,7 +53,7 @@ For apps, such as social messaging applications, where a message might come at a
 In our testing (including real world data), we have seen no noticeable impact of the exponential option on battery life. We haven't used the linear system, but we believe if you need that, your only real alternative is to keep a service running constantly in the background, which would be worse.
 
 ## TODO
-- Add library to Maven Central
+- ~~Add library to Maven Central~~
 - Develop a method by which multiple apps using Pacemaker on the same device work together so as to not constantly send heartbeats independently, thereby reducing any impact on battery life.
 
 ## Apps using Pacemaker
