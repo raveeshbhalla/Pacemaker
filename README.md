@@ -22,7 +22,7 @@ We've exposed two functions to start Pacemaker, one which sends linear heartbeat
      * @param context Context from your application
      * @param delay Gap between heartbeats in minutes
      */
-   Pacemaker.scheduleLinear(Context context, int delay)
+    Pacemaker.scheduleLinear(Context context, int delay)
 
 ###### Exponential
 
