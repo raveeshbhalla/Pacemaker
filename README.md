@@ -22,7 +22,7 @@ We've exposed two functions to start Pacemaker, one which sends linear heartbeat
      * @param context Context from your application
      * @param delay Gap between heartbeats in minutes
      */
-    public static void scheduleLinear(Context context, int delay)
+   Pacemaker.scheduleLinear(Context context, int delay)
 
 ###### Exponential
 
@@ -32,7 +32,7 @@ We've exposed two functions to start Pacemaker, one which sends linear heartbeat
      * @param delay Time in which to send first broadcast. Subsequent broadcasts would be at exponential intervals
      * @param max The max time till which the broadcasts should be sent. Once past this limit, no more heartbeats are sent
      */
-    public static void scheduleExponential(Context context, int delay, int max) 
+    Pacemaker.scheduleExponential(Context context, int delay, int max) 
 
 #### Which should I use
 For apps, such as Haptik, where it can be reasonably guessed when a push notification is most likely to be received, the exponential system works well since it does not result in heartbeats being sent continuously. For example, at Haptik, it is far more likely to receive a push immediately after a user moves out of the app, and rarely after a significant portion of time.
