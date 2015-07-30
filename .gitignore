@@ -5,3 +5,16 @@
 .DS_Store
 /build
 /captures
+
+gradle.properties
+.idea
+build
+demo/build
+demo/demo.iml
+gradle
+pacemaker/build
+pacemaker/pacemaker.iml
+gradlew
+gradlew.bat
+local.properties
+Pacemaker.iml
