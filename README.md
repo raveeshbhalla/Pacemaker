@@ -15,6 +15,7 @@ Right from the day we built out Pacemaker into our app, our goal was to offer th
 ## How to use
 
 First, add the library to your project using Maven Central
+
     repositories {
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
@@ -58,3 +59,5 @@ In our testing (including real world data), we have seen no noticeable impact of
 
 ## Apps using Pacemaker
 - [Haptik Personal Assistant](https://play.google.com/store/apps/details?id=co.haptik)
+
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Pacemaker-green.svg?style=flat)](https://android-arsenal.com/details/1/2216)
