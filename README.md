@@ -53,11 +53,18 @@ For apps, such as social messaging applications, where a message might come at a
 ## Impact on battery
 In our testing (including real world data), we have seen no noticeable impact of the exponential option on battery life. We haven't used the linear system, but we believe if you need that, your only real alternative is to keep a service running constantly in the background, which would be worse.
 
-## TODO
-- ~~Add library to Maven Central~~
-- Develop a method by which multiple apps using Pacemaker on the same device work together so as to not constantly send heartbeats independently, thereby reducing any impact on battery life.
+# Haptik Open Source Challenge
+[As we've said in the past](http://haptik.co/tech/2015/08/21/opensource/), we at Haptik are highly grateful for the open source community for the role it has played in getting us where we are, and are always looking to contribute back with work such as Pacemaker. However, while we'll continue shipping code, we really would like others to get involved as well.
+
+For this reason, we're launching the Haptik Open Source Challenge. Every once in a while, we'll pick up one of our libraries and invite the community to contribute to it. Contributors stand the chance of winning cash prizes and jobs at Haptik.
+
+Today (September 16, 2015) we're starting the first Open Source Challenge, inviting contributions for Pacemaker. Your goal, if you do accept the challenge, is to build out a functionality that allows multiple apps on the device to use Pacemaker, without harming the user's battery life.
+
+The challenge is open until 12 noon on 21st September, 2015. So go ahead, fork us, do a good deed, and once you're done, submit a pull request. If you have any questions, [E-mail me (Raveesh Bhalla)](mailto:raveesh@haptik.co) or reach out to me [on Twitter](http://twitter.com/raveeshbhalla).
 
 ## Apps using Pacemaker
 - [Haptik Personal Assistant](https://play.google.com/store/apps/details?id=co.haptik)
+
+Want to list your app here? Simply submit a pull request with an edit to the Readme
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Pacemaker-green.svg?style=flat)](https://android-arsenal.com/details/1/2216)
