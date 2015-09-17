@@ -11,12 +11,7 @@ import android.util.Log;
  */
 public class Pacemaker {
 
-    public static final int TYPE_LINEAR = 1;
-    public static final int TYPE_EXPONENTIAL = 2;
-
-    public static final String KEY_DELAY = "KEY_DELAY";
-    public static final String KEY_TYPE = "KEY_TYPE";
-    public static final String KEY_MAX = "KEY_MAX";
+    private static final String SCHEDULER_INTENT = "in.raveesh.pacemaker.SCHEDULER";
 
     /**
      * Starts a linear repeated alarm that sends a broadcast to Play Services, which in turn sends a heartbeat
@@ -24,17 +19,12 @@ public class Pacemaker {
      * @param delay Gap between heartbeats in minutes
      */
     public static void scheduleLinear(Context context, int delay) {
-        Intent intent = new Intent(context, HeartbeatReceiver.class);
-        intent.putExtra(KEY_DELAY, delay);
-        intent.putExtra(KEY_TYPE, TYPE_LINEAR);
+        Intent intent = new Intent();
+        intent.setAction(SCHEDULER_INTENT);
+        intent.putExtra(Constants.KEY_DELAY, delay);
+        intent.putExtra(Constants.KEY_TYPE, Constants.TYPE_LINEAR);
 
-        long timeGap = delay * 60 * 1000;
-
-        PendingIntent alarmIntent = PendingIntent.getBroadcast(context, delay, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
-                System.currentTimeMillis() + timeGap, timeGap,
-                alarmIntent);
+        context.sendOrderedBroadcast(intent, null);
         Log.d("Heartbeater", "Scheduled repeating");
     }
 
@@ -45,8 +35,8 @@ public class Pacemaker {
      */
     public static void cancelLinear(Context context, int delay){
         Intent intent = new Intent(context, HeartbeatReceiver.class);
-        intent.putExtra(KEY_DELAY, delay);
-        intent.putExtra(KEY_TYPE, TYPE_LINEAR);
+        intent.putExtra(Constants.KEY_DELAY, delay);
+        intent.putExtra(Constants.KEY_TYPE, Constants.TYPE_LINEAR);
         PendingIntent alarmIntent = PendingIntent.getBroadcast(context, delay, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.cancel(alarmIntent);
@@ -59,10 +49,11 @@ public class Pacemaker {
      * @param max The max time till which the broadcasts should be sent. Once past this limit, no more heartbeats are sent
      */
     public static void scheduleExponential(Context context, int delay, int max) {
-        Intent intent = new Intent(context, HeartbeatReceiver.class);
-        intent.putExtra(KEY_DELAY, delay);
-        intent.putExtra(KEY_TYPE, TYPE_EXPONENTIAL);
-        intent.putExtra(KEY_MAX, max);
+        Intent intent = new Intent(context, Scheduler.class);
+        intent.setAction(SCHEDULER_INTENT);
+        intent.putExtra(Constants.KEY_DELAY, delay);
+        intent.putExtra(Constants.KEY_TYPE, Constants.TYPE_EXPONENTIAL);
+        intent.putExtra(Constants.KEY_MAX, max);
 
         long timeGap = delay * 60 * 1000;
         PendingIntent alarmIntent = PendingIntent.getBroadcast(context, delay, intent, PendingIntent.FLAG_CANCEL_CURRENT);
