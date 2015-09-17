@@ -26,11 +26,11 @@ public class HeartbeatReceiver extends BroadcastReceiver {
      * @param intent Intent from the broadcast receiver onReceive
      */
     private void scheduleNext(Context context, Intent intent) {
-        int type = intent.getIntExtra(Pacemaker.KEY_TYPE, Pacemaker.TYPE_LINEAR);
-        if (type == Pacemaker.TYPE_EXPONENTIAL) {
-            int delay = intent.getIntExtra(Pacemaker.KEY_DELAY, 5);
+        int type = intent.getIntExtra(Constants.KEY_TYPE, Constants.TYPE_LINEAR);
+        if (type == Constants.TYPE_EXPONENTIAL) {
+            int delay = intent.getIntExtra(Constants.KEY_DELAY, 5);
             delay = delay*2;
-            int max = intent.getIntExtra(Pacemaker.KEY_MAX, 60);
+            int max = intent.getIntExtra(Constants.KEY_MAX, 60);
             if (delay > max){
                 Log.d("Heartbeater", "Killing Heartbeater as delay now exceeds max");
                 return;
