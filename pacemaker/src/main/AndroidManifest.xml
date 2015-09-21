@@ -1,8 +1,12 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="in.raveesh.heartbeater">
+<manifest package="in.raveesh.pacemaker"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          android:sharedUserId="in.raveesh">
 
-    <application android:allowBackup="true" android:label="@string/app_name">
-
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name">
+        <receiver
+            android:name=".HeartbeatReceiver"
+            android:enabled="true"/>
     </application>
-
 </manifest>

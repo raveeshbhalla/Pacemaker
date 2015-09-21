@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import in.raveesh.pacemaker.Pacemaker;
-import in.raveesh.pacemaker.R;
+import static in.raveesh.pacemaker.Pacemaker.cancelLinear;
+import static in.raveesh.pacemaker.Pacemaker.scheduleLinear;
 
 public class MainActivity extends Activity {
 
@@ -21,11 +21,11 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (!beginOrStop) {
-                    Pacemaker.scheduleLinear(MainActivity.this, 5);
+                    scheduleLinear(MainActivity.this, 5);
                     set.setText(R.string.stop);
                 }
                 else{
-                    Pacemaker.cancelLinear(MainActivity.this, 5);
+                    cancelLinear(MainActivity.this, 5);
                     set.setText(R.string.begin);
                 }
                 beginOrStop = !beginOrStop;
