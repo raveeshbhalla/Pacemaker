@@ -11,6 +11,21 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    productFlavors {
+        demo1 {
+            applicationId "in.raveesh.pacemaker1"
+        }
+
+        demo2 {
+            applicationId "in.raveesh.pacemaker2"
+        }
+
+        demo3 {
+            applicationId "in.raveesh.pacemaker3"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,5 +39,6 @@ repositories {
 }
 
 dependencies {
-    compile 'in.raveesh:pacemaker:0.1.0-SNAPSHOT'
+//    compile 'in.raveesh:pacemaker:0.2.0-SNAPSHOT'
+    compile project(':pacemaker')
 }

@@ -17,4 +17,4 @@ pacemaker/pacemaker.iml
 gradlew
 gradlew.bat
 local.properties
-Pacemaker.iml
+*.iml
