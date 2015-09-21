@@ -80,13 +80,16 @@ public class HeartbeatReceiver extends BroadcastReceiver
                 }
                 else
                 {
+                    //This will write only linear broadcasts
                     FileOperations.write(context.getPackageName(), intent.getIntExtra(Pacemaker.KEY_DELAY, 5));
                 }
             }
             // Making sure that we are the intended receiver
-            if (FileOperations.getFilePackage().equals(context.getPackageName())) return true;
+           return (FileOperations.getFilePackage().equals(context.getPackageName()));
         }
-        return false;
+        //This means that the only request ever made was an exponential request
+        //As the file doesn't exist, thus, let it execute
+        return true;
     }
 
     /**
